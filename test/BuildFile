@@ -1,6 +1,6 @@
 <use name=FWCore/Framework>
 <use name=FWCore/Utilities>
-<use name=Foundation/PluginManager>
+<use name=FWCore/PluginManager>
 <use name=FWCore/ParameterSet>
 <use name=IOMC/RandomEngine>
 <use name=clhep>
@@ -8,7 +8,7 @@
    <flags SEAL_PLUGIN_NAME="IOMCRandomEngineTestRandomNumberServiceAnalyzer">
    <use name=FWCore/Framework>
    <use name=FWCore/Utilities>
-   <use name=Foundation/PluginManager>
+   <use name=FWCore/PluginManager>
    <use name=FWCore/ParameterSet>
    <use name=clhep>
 </library>
