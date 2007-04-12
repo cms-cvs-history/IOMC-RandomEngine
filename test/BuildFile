@@ -5,7 +5,7 @@
 <use name=IOMC/RandomEngine>
 <use name=clhep>
 <library file=TestRandomNumberServiceAnalyzer.cc name=IOMCRandomEngineTestRandomNumberServiceAnalyzer>
-   <flags SEAL_PLUGIN_NAME="IOMCRandomEngineTestRandomNumberServiceAnalyzer">
+   <flags EDM_PLUGIN=1>
    <use name=FWCore/Framework>
    <use name=FWCore/Utilities>
    <use name=FWCore/PluginManager>
