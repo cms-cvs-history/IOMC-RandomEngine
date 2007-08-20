@@ -230,13 +230,12 @@ process.p49 = cms.Path( process.m49 )
 process.p50 = cms.Path( process.m50 )
 
 process.out = cms.OutputModule("EventStreamFileWriter",
-    max_event_size = cms.int32(7000000),
-    max_queue_depth = cms.int32(5),
-    use_compression = cms.bool(True),
-    compression_level = cms.int32(1),
+    max_event_size = cms.untracked.int32(7000000),
+    use_compression = cms.untracked.bool(True),
+    compression_level = cms.untracked.int32(1),
 
-    fileName = cms.string("testRandomFilter.dat"),
-    indexFileName = cms.string("testRandomFilter.ind")
+    fileName = cms.untracked.string("testRandomFilter.dat"),
+    indexFileName = cms.untracked.string("testRandomFilter.ind")
 )
 
 #  processs.outp = cms.OutputModule("PoolOutputModule",
