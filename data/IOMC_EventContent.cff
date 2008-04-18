@@ -1,0 +1,7 @@
+//Full Event content 
+block IOMCFEVT = {
+  untracked vstring outputCommands = {
+    "keep *_randomEngineStateProducer_*_*"
+  }		
+}	
+
