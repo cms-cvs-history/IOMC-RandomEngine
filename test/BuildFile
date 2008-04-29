@@ -6,11 +6,11 @@
 <use name=clhep>
 <library file=TestRandomNumberServiceAnalyzer.cc name=IOMCRandomEngineTestRandomNumberServiceAnalyzer>
    <flags EDM_PLUGIN=1>
-   <use name=FWCore/Framework>
-   <use name=FWCore/Utilities>
-   <use name=FWCore/PluginManager>
-   <use name=FWCore/ParameterSet>
-   <use name=clhep>
+#  <use name=FWCore/Framework>
+#  <use name=FWCore/Utilities>
+#  <use name=FWCore/PluginManager>
+#  <use name=FWCore/ParameterSet>
+#  <use name=clhep>
 </library>
 
 <bin file=TestIOMCRandomEngineService.cpp>
