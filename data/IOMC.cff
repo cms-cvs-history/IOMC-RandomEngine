@@ -39,11 +39,11 @@ service = RandomNumberGeneratorService
        untracked uint32 initialSeed = 1234567
        untracked string engineName = "HepJamesRandom"
    }
-   PSet simECalUnsuppressedDigis = {
+   PSet simEcalUnsuppressedDigis = {
        untracked uint32 initialSeed = 1234567
        untracked string engineName = "HepJamesRandom"
    }
-   PSet simHCalUnsuppressedDigis = {
+   PSet simHcalUnsuppressedDigis = {
        untracked uint32 initialSeed = 11223344
        untracked string engineName = "HepJamesRandom"
    }
