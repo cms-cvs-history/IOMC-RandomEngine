@@ -1,5 +1,5 @@
-//Full Event content 
-block IOMCFEVT = {
+//RAW content 
+block IOMCRAW = {
   untracked vstring outputCommands = {
     "keep *_randomEngineStateProducer_*_*"
   }		
