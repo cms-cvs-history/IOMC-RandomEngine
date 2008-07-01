@@ -1,7 +1,0 @@
-//RAW content 
-block IOMCRAW = {
-  untracked vstring outputCommands = {
-    "keep *_randomEngineStateProducer_*_*"
-  }		
-}	
-
