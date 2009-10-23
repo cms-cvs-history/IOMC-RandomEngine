@@ -6,6 +6,7 @@
 <use name=rootcore>
 <use name=rootmath>
 <use name=rootgraphics>
+<use name=geant4core>
 <library file=TestRandomNumberServiceAnalyzer.cc name=IOMCRandomEngineTestRandomNumberServiceAnalyzer>
    <flags EDM_PLUGIN=1>
 </library>

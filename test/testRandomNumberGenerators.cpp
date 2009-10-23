@@ -16,6 +16,9 @@
 #include "CLHEP/Random/RandGamma.h"
 #include "CLHEP/Random/RandLandau.h"
 
+#include "G4Poisson.hh"
+#include "Randomize.hh"
+
 #include "TRandom3.h"
 
 int main() {
@@ -43,6 +46,9 @@ int main() {
   TH1D* histoROOTrndm         = new TH1D("histoROOTrndm","TRandom3::Rndm",100,0.,1.);
   TH1D* histoROOTgaus         = new TH1D("histoROOTgaus","TRandom3::Gaus",200,-10.,10.);
 
+  TH1D* histoG4Poisson        = new TH1D("histoG4Poisson","G4Poisson",40,0.,20.);
+  TH1D* histoG4UniformRand    = new TH1D("histoG4UniformRand","G4UniformRand",100,0.,1.);
+
   // CLHEP HepJamesRandom engine
 
   CLHEP::HepJamesRandom engine(seed1);
@@ -54,7 +60,7 @@ int main() {
   for (int i = 0; i < ncycle; ++i) {
     randomNumber = theFlat.fire();
     histoCLHEPflat->Fill(randomNumber);
-    if (i%nfreq == 1) std::cout << "Flat random number #i           " << std::setw(12) << i << " = " << std::fixed << std::setw(20) << std::setprecision(12) << randomNumber << std::endl;
+    if (i%nfreq == 1) std::cout << "Flat random number #i           " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;
   }
 
   // Test of CLHEP GaussQ distribution
@@ -64,7 +70,7 @@ int main() {
   for (int i = 0; i < ncycle; ++i) {
     randomNumber = theGaussQ.fire();
     histoCLHEPgaussQ->Fill(randomNumber);
-    if (i%nfreq == 1) std::cout << "GaussQ random number #i         " << std::setw(12) << i << " = " << std::fixed << std::setw(20) << std::setprecision(12) << randomNumber << std::endl;
+    if (i%nfreq == 1) std::cout << "GaussQ random number #i         " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;
   }
 
   // Test of CLHEP PoissonQ distribution
@@ -74,7 +80,7 @@ int main() {
   for (int i = 0; i < ncycle; ++i) {
     randomNumber = thePoissonQ.fire();
     histoCLHEPpoissonQ->Fill(randomNumber);
-    if (i%nfreq == 1) std::cout << "PoissonQ random number #i       " << std::setw(12) << i << " = " << std::fixed << std::setw(20) << std::setprecision(12) << randomNumber << std::endl;
+    if (i%nfreq == 1) std::cout << "PoissonQ random number #i       " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;
   }
 
   // Test of CLHEP Poisson distribution
@@ -84,7 +90,7 @@ int main() {
   for (int i = 0; i < ncycle; ++i) {
     randomNumber = thePoisson.fire();
     histoCLHEPpoisson->Fill(randomNumber);
-    if (i%nfreq == 1) std::cout << "Poisson random number #i        " << std::setw(12) << i << " = " << std::fixed << std::setw(20) << std::setprecision(12) << randomNumber << std::endl;
+    if (i%nfreq == 1) std::cout << "Poisson random number #i        " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;
   }
 
   // Test of CLHEP Exponential distribution
@@ -94,7 +100,7 @@ int main() {
   for (int i = 0; i < ncycle; ++i) {
     randomNumber = theExponential.fire();
     histoCLHEPexponential->Fill(randomNumber);
-    if (i%nfreq == 1) std::cout << "Exponential random number #i    " << std::setw(12) << i << " = " << std::fixed << std::setw(20) << std::setprecision(12) << randomNumber << std::endl;
+    if (i%nfreq == 1) std::cout << "Exponential random number #i    " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;
   }
 
   // Test of CLHEP Gamma distribution
@@ -104,7 +110,7 @@ int main() {
   for (int i = 0; i < ncycle; ++i) {
     randomNumber = theGamma.fire();
     histoCLHEPgamma->Fill(randomNumber);
-    if (i%nfreq == 1) std::cout << "Gamma random number #i          " << std::setw(12) << i << " = " << std::fixed << std::setw(20) << std::setprecision(12) << randomNumber << std::endl;
+    if (i%nfreq == 1) std::cout << "Gamma random number #i          " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;
   }
 
   // Test of CLHEP Landau distribution
@@ -114,7 +120,7 @@ int main() {
   for (int i = 0; i < ncycle; ++i) {
     randomNumber = theLandau.fire();
     histoCLHEPlandau->Fill(randomNumber);
-    if (i%nfreq == 1) std::cout << "Landau random number #i         " << std::setw(12) << i << " = " << std::fixed << std::setw(20) << std::setprecision(12) << randomNumber << std::endl;
+    if (i%nfreq == 1) std::cout << "Landau random number #i         " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;
   }
 
   TRandom3* rootEngine = new TRandom3(seed2); 
@@ -124,7 +130,7 @@ int main() {
   for (int i = 0; i < ncycle; ++i) {
     randomNumber = rootEngine->Rndm();
     histoROOTrndm->Fill(randomNumber);
-    if (i%nfreq == 1) std::cout << "TRandom3 flat random number #i  " << std::setw(12) << i << " = " << std::fixed << std::setw(20) << std::setprecision(12) << randomNumber << std::endl;
+    if (i%nfreq == 1) std::cout << "TRandom3 flat random number #i  " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;
   }
   
   // Test of TRandom3 Gauss
@@ -132,7 +138,24 @@ int main() {
   for (int i = 0; i < ncycle; ++i) {
     randomNumber = rootEngine->Gaus();
     histoROOTgaus->Fill(randomNumber);
-    if (i%nfreq == 1) std::cout << "TRandom3 Gauss random number #i " << std::setw(12) << i << " = " << std::fixed << std::setw(20) << std::setprecision(12) << randomNumber << std::endl;
+    if (i%nfreq == 1) std::cout << "TRandom3 Gauss random number #i " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;
+  }
+
+  // Test of G4Poisson
+
+  int ave = 1;
+  for (int i = 0; i < ncycle; ++i) {
+    randomNumber = G4Poisson(ave);
+    histoG4Poisson->Fill(randomNumber);
+    if (i%nfreq == 1) std::cout << "G4Poisson random number #i " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;              
+  }
+
+  // Test of G4UniformRand
+
+  for (int i = 0; i < ncycle; ++i) {
+    randomNumber = G4UniformRand();
+    histoG4UniformRand->Fill(randomNumber);
+    if (i%nfreq == 1) std::cout << "G4UniformRand random number #i " << std::setw(12) << i << " = " << std::fixed << std::setw(22) << std::setprecision(14) << randomNumber << std::endl;              
   }
 
   // Write out files 
@@ -147,6 +170,8 @@ int main() {
   histoCLHEPlandau->Write();
   histoROOTrndm->Write();
   histoROOTgaus->Write();
+  histoG4Poisson->Write();
+  histoG4UniformRand->Write();
   file->Close();
  
   return 0;
