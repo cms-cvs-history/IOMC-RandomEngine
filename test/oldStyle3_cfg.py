@@ -34,22 +34,11 @@ process.RandomNumberGeneratorService = cms.Service("RandomNumberGeneratorService
         t3 = cms.untracked.uint32(83),
         t4 = cms.untracked.uint32(84),
         t5 = cms.untracked.uint32(191)
-    ),
-
-    moduleSeedVectors = cms.PSet(
-        t2 = cms.untracked.vuint32(1, 2)
-    ),
-
-    moduleEngines = cms.PSet(
-        t2 = cms.untracked.string('RanecuEngine'),
-        t3 = cms.untracked.string('TRandom3'),
-        t5 = cms.untracked.string('TRandom3')
     )
 )
 
 process.t1 = cms.EDAnalyzer("TestRandomNumberServiceAnalyzer")
-process.t2 = cms.EDAnalyzer("TestRandomNumberServiceAnalyzer")
 process.t3 = cms.EDAnalyzer("TestRandomNumberServiceAnalyzer")
 process.t4 = cms.EDAnalyzer("TestRandomNumberServiceAnalyzer")
 
-process.p = cms.Path(process.t1+process.t2+process.t3+process.t4)
+process.p = cms.Path(process.t1+process.t3+process.t4)
