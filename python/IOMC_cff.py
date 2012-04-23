@@ -48,22 +48,6 @@ RandomNumberGeneratorService = cms.Service("RandomNumberGeneratorService",
         initialSeed = cms.untracked.uint32(12345),
         engineName = cms.untracked.string('HepJamesRandom')
     ),
-    simSiStripDigis = cms.PSet(
-        initialSeed = cms.untracked.uint32(1234567),
-        engineName = cms.untracked.string('HepJamesRandom')
-    ),
-    simSiPixelDigis = cms.PSet(
-        initialSeed = cms.untracked.uint32(1234567),
-        engineName = cms.untracked.string('HepJamesRandom')
-    ),
-    simEcalUnsuppressedDigis = cms.PSet(
-        initialSeed = cms.untracked.uint32(1234567),
-        engineName = cms.untracked.string('HepJamesRandom')
-    ),
-    simHcalUnsuppressedDigis = cms.PSet(
-        initialSeed = cms.untracked.uint32(11223344),
-        engineName = cms.untracked.string('HepJamesRandom')
-    ),
     simMuonDTDigis = cms.PSet(
         initialSeed = cms.untracked.uint32(1234567),
         engineName = cms.untracked.string('HepJamesRandom')
@@ -74,10 +58,6 @@ RandomNumberGeneratorService = cms.Service("RandomNumberGeneratorService",
     ),
     simMuonRPCDigis = cms.PSet(
         initialSeed = cms.untracked.uint32(1234567),
-        engineName = cms.untracked.string('HepJamesRandom')
-    ),
-    simCastorDigis = cms.PSet(
-        initialSeed = cms.untracked.uint32(12345678),
         engineName = cms.untracked.string('HepJamesRandom')
     ),
 #
